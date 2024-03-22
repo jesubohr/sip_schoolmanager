@@ -1,0 +1,22 @@
+{
+  "name": "school-management",
+  "version": "1.0.0",
+  "description": "A platform for school management",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [
+    "school",
+    "management",
+    "platform"
+  ],
+  "author": "Jesus Borrero",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "7.3.1",
+    "@typescript-eslint/parser": "7.3.1",
+    "eslint": "8.57.0",
+    "typescript": "5.4.3"
+  }
+}
