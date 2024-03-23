@@ -12,5 +12,5 @@ export type InputValidator = (value: string) => {
   isValid: boolean
   message: string
 }
-export type SubmitAction = (...args: any[]) => void
+export type SubmitAction = (...args: unknown[]) => void
 export type Method = "GET" | "POST" | "PUT" | "DELETE"
