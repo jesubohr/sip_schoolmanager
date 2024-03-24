@@ -3,15 +3,13 @@ import { createElement } from "@/utils"
 
 export class FormRender {
   #form: Form
-  #containerId: string
 
-  constructor(form: Form, containerId: string) {
+  constructor(form: Form) {
     this.#form = form
-    this.#containerId = containerId
   }
 
-  renderForm() {
-    const formContainer = document.getElementById(this.#containerId)
+  renderForm(containerId: string) {
+    const formContainer = document.getElementById(containerId)
     if (!formContainer) throw new Error("Container not found")
 
     const formElement = this.#createForm()
