@@ -1,5 +1,5 @@
-from modules.singleton import Singleton
-from modules.models.classroom import Classroom
+from applications.schoolmanager.modules.singleton import Singleton
+from applications.schoolmanager.modules.models.classroom import Classroom
 
 class ClassromFactory(metaclass = Singleton):
   def __init__(self):

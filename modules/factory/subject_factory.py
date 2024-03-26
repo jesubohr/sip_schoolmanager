@@ -1,5 +1,5 @@
-from modules.singleton import Singleton
-from modules.models.subject import Subject
+from applications.schoolmanager.modules.singleton import Singleton
+from applications.schoolmanager.modules.models.subject import Subject
 
 class SubjectFactory(metaclass = Singleton):
   def __init__(self):

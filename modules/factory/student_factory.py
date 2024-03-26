@@ -1,4 +1,4 @@
-from modules.models.student import Student
+from applications.schoolmanager.modules.models.student import Student
 
 class StudentFactory:
   def create_student(data: dict) -> Student:
