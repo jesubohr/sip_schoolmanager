@@ -3,6 +3,7 @@ import { FormFactory } from "@/factory/form-factory"
 import { FormController } from "@/controllers/form-controller"
 import { FormRender } from "@/render/form-render"
 import { VALIDATORS } from "@/utils/validators"
+import { getClassroomOptions } from "@/utils/classrooms"
 
 const studentFormInputs: InputField[] = [
   {
@@ -52,9 +53,21 @@ const studentFormInputs: InputField[] = [
   }
 ]
 
-export function initRegisterForm() {
+export async function initRegisterForm() {
   const formFactory = new FormFactory()
   const formController = new FormController()
+  const classroomOptions = await getClassroomOptions()
+
+  studentFormInputs.push({
+    type: "select",
+    id: "classroomId",
+    name: "classroomId",
+    label: "Classroom",
+    placeholder: "Select the classroom",
+    value: classroomOptions,
+    required: true,
+    validators: [VALIDATORS.required]
+  })
 
   const studentForm = formFactory.buildForm({
     method: "POST",

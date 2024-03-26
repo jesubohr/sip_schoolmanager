@@ -1,6 +1,7 @@
 import { type Form } from "@/models/form"
 import { createElement } from "@/utils/dom"
 
+type Option = { label: string, value: string }
 export class FormRender {
   #form: Form
 
@@ -86,8 +87,8 @@ export class FormRender {
           name: field.name,
           required: `${field.required}`
         })
-        const options = JSON.parse(field?.value ?? "[]")
-        options.forEach(({ label, value }: { label: string, value: string }) => {
+        const options = (field?.value ?? []) as Option[]
+        options.forEach(({ label, value }: Option) => {
           const optionElement = createElement("option", { value }, label)
           selectElement.appendChild(optionElement)
         })
@@ -98,7 +99,7 @@ export class FormRender {
           type: field.type,
           name: field.name,
           placeholder: field.placeholder ?? "",
-          value: field.value ?? "",
+          value: (field.value as string) ?? "",
           required: `${field.required}`
         })
         inputElement.onchange = (ev: Event) =>
