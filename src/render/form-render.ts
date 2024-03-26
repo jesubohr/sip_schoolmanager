@@ -36,7 +36,9 @@ export class FormRender {
 
   setStatus(success: boolean, message: string) {
     const formStatus = document.querySelector(".form-status") as HTMLElement
-    const statusMessage = formStatus.querySelector(".status-message") as HTMLParagraphElement
+    const statusMessage = formStatus.querySelector(
+      ".status-message"
+    ) as HTMLParagraphElement
     statusMessage.textContent = message
     formStatus.setAttribute("data-status", success ? "success" : "error")
     formStatus.style.display = "block"
@@ -52,11 +54,19 @@ export class FormRender {
   }
 
   #createFormStatus() {
-    const formStatus = createElement("div", { class: "form-status", "data-status": "", style: "display: none"})
+    const formStatus = createElement("div", {
+      class: "form-status",
+      "data-status": "",
+      style: "display: none"
+    })
     const statusMessage = createElement("p", { class: "status-message" })
-    const closeButton = createElement("button", { type: "button", class: "close-button" }, "×")
+    const closeButton = createElement(
+      "button",
+      { type: "button", class: "close-button" },
+      "×"
+    )
 
-    closeButton.onclick = () => formStatus.style.display = "none"
+    closeButton.onclick = () => (formStatus.style.display = "none")
     formStatus.appendChild(statusMessage)
     formStatus.appendChild(closeButton)
     return formStatus
@@ -69,18 +79,34 @@ export class FormRender {
         { for: field.id },
         field.label
       )
-      const inputElement = createElement("input", {
-        id: field.id,
-        type: field.type,
-        name: field.name,
-        placeholder: field.placeholder ?? "",
-        value: field.value ?? "",
-        required: `${field.required}`
-      })
-      const errorElement = createElement("p", { class: "error-message" })
 
-      inputElement.onchange = (ev: Event) => this.setError((ev.target as HTMLInputElement).id, "")
-      labelElement.appendChild(inputElement)
+      if (field.type === "select") {
+        const selectElement = createElement("select", {
+          id: field.id,
+          name: field.name,
+          required: `${field.required}`
+        })
+        const options = JSON.parse(field?.value ?? "[]")
+        options.forEach(({ label, value }: { label: string, value: string }) => {
+          const optionElement = createElement("option", { value }, label)
+          selectElement.appendChild(optionElement)
+        })
+        labelElement.appendChild(selectElement)
+      } else {
+        const inputElement = createElement("input", {
+          id: field.id,
+          type: field.type,
+          name: field.name,
+          placeholder: field.placeholder ?? "",
+          value: field.value ?? "",
+          required: `${field.required}`
+        })
+        inputElement.onchange = (ev: Event) =>
+          this.setError((ev.target as HTMLInputElement).id, "")
+        labelElement.appendChild(inputElement)
+      }
+
+      const errorElement = createElement("p", { class: "error-message" })
       labelElement.appendChild(errorElement)
       return labelElement
     })
