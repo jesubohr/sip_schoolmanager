@@ -1,5 +1,5 @@
 import { type Form } from "@/models/form"
-import { createElement } from "@/utils"
+import { createElement } from "@/utils/dom"
 
 export class FormRender {
   #form: Form
