@@ -29,7 +29,7 @@ def upgrade() -> None:
     students_table = op.create_table(
         'students',
         sa.Column('id', sa.Integer, primary_key=True),
-        sa.Column('student_code', sa.String(50), nullable=False, unique=True),
+        sa.Column('student_code', sa.String(9), nullable=False, unique=True),
         sa.Column('first_name', sa.String(50), nullable=False),
         sa.Column('last_name', sa.String(50), nullable=False),
         sa.Column('birthdate', sa.Date, nullable=False),
