@@ -49,15 +49,16 @@ export class FormController {
 
   #getInputsWithValue(form: Form) {
     const formInputs = form.inputs
-    const inputsNodes = document.querySelectorAll(".fields-container input")
-    const inputs = Array.from(inputsNodes) as HTMLInputElement[]
-    return inputs.map((input, index) => {
-      return {
+    const inputValues = [] as InputToValidate[]
+    for (const input of formInputs) {
+      const inputVal = (document.querySelector(`#${input.id}`) as HTMLInputElement).value ?? ""
+      inputValues.push({
         id: input.id,
         name: input.name,
-        value: input.value,
-        validators: formInputs[index].validators
-      }
-    })
+        value: inputVal,
+        validators: input.validators
+      })
+    }
+    return inputValues
   }
 }
