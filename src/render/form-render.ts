@@ -35,10 +35,11 @@ export class FormRender {
   }
 
   setStatus(success: boolean, message: string) {
-    const formStatus = document.querySelector(".form-status")
-    const statusMessage = formStatus?.querySelector(".status-message")
-    if (statusMessage) statusMessage.textContent = message
-    formStatus?.setAttribute("data-status", success ? "success" : "error")
+    const formStatus = document.querySelector(".form-status") as HTMLElement
+    const statusMessage = formStatus.querySelector(".status-message") as HTMLParagraphElement
+    statusMessage.textContent = message
+    formStatus.setAttribute("data-status", success ? "success" : "error")
+    formStatus.style.display = "block"
   }
 
   // Render Methods
@@ -51,11 +52,11 @@ export class FormRender {
   }
 
   #createFormStatus() {
-    const formStatus = createElement("div", { class: "form-status", "data-status": "" })
+    const formStatus = createElement("div", { class: "form-status", "data-status": "", style: "display: none"})
     const statusMessage = createElement("p", { class: "status-message" })
-    const closeButton = createElement("button", { class: "close-button" }, "×")
+    const closeButton = createElement("button", { type: "button", class: "close-button" }, "×")
 
-    closeButton.onclick = () => formStatus.remove()
+    closeButton.onclick = () => formStatus.style.display = "none"
     formStatus.appendChild(statusMessage)
     formStatus.appendChild(closeButton)
     return formStatus
