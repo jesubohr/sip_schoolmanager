@@ -20,7 +20,12 @@ export class FormController {
     const inputValues = this.#getInputsWithValue(form)
     if (!this.#validateInputValue(inputValues)) return
 
-    const formData = Object.groupBy(inputValues, (input) => input.name)
+    const groupByName = Object.groupBy(inputValues, (input) => input.name)
+    const formData = Object.entries(groupByName).reduce((acc, [key, value]) => {
+      acc[key] = value?.map((input) => input.value)[0] ?? ""
+      return acc
+    }, {} as Record<string, string>)
+
     try {
       const response = await this.#formRepository.sendData(
         form.action,
