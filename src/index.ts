@@ -58,10 +58,10 @@ export function initRegisterForm() {
 
   const studentForm = formFactory.buildForm({
     method: "POST",
-    action: "/register",
+    action: "schoolmanager/students/create",
     inputs: studentFormInputs,
-    onSubmit: (form) => {
-      formController.submitForm(form)
+    onSubmit: async (form) => {
+      await formController.submitForm(form)
     }
   })
 
