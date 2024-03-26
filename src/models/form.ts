@@ -4,13 +4,13 @@ interface FormProps {
   method?: Method
   action?: string
   inputs?: InputField[]
-  onSubmit?: SubmitAction
+  onSubmit?: SubmitAction<Form>
 }
 export class Form {
   #method: Method
   #action: string
   #inputs: InputField[]
-  #onSubmit: SubmitAction
+  #onSubmit: SubmitAction<Form>
 
   constructor({
     method = "POST",
