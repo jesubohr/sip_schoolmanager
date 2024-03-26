@@ -35,7 +35,7 @@ export class FormController {
   #validateInputValue(inputs: InputToValidate[]) {
     return inputs.every((input) => {
       return input.validators.every((validator) => {
-        const { isValid, message } = validator(input.value)
+        const { isValid, message } = validator(input.value, input.name)
         if (!isValid) this.#formRender.setError(input.id, message)
         return isValid
       })

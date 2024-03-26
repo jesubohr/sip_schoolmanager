@@ -8,7 +8,7 @@ export interface InputField {
   required: boolean
   validators: InputValidator[]
 }
-export type InputValidator = (value: string) => {
+export type InputValidator = (value: string, name?: string) => {
   isValid: boolean
   message: string
 }
