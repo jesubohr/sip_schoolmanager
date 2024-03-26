@@ -1,13 +1,13 @@
-from gluon.contrib.appconfig import Appconfig
+from gluon.contrib.appconfig import AppConfig
 from gluon import DAL
 
 class DatabaseRepository():
   ''' Class for database connection '''
-  config = Appconfig(reload=True)
+  config = AppConfig(reload=True)
   
   def __init__(self):
-    database_uri = self.create_database_uri()
-    self.db = DAL(database_uri, pool_size=self.config.get('db.pool_size', cast=int), migrate=self.config.get('db.migrate', cast=bool), check_reserved=['all'])
+    database_uri = self.get_database_uri()
+    self.db = DAL(database_uri, pool_size=self.config.get('db.pool_size'), migrate=self.config.get('db.migrate'), check_reserved=['all'])
 
   def get_database_uri(self) -> str:
     ''' Creates uri connection string '''
