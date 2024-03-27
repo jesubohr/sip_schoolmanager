@@ -7,7 +7,7 @@ class DatabaseRepository():
   
   def __init__(self):
     database_uri = self.get_database_uri()
-    self.db = DAL(database_uri, pool_size=self.config.get('db.pool_size'), migrate=self.config.get('db.migrate'), check_reserved=['all'])
+    self.db = DAL(database_uri, pool_size=self.config.get('db.pool_size'), migrate=False, migrate_enabled=False, check_reserved=['all'])
 
   def get_database_uri(self) -> str:
     ''' Creates uri connection string '''
