@@ -8,11 +8,10 @@ class SubjectFactory(metaclass = Singleton):
   def create_subject(self, data: dict) -> Subject:
     ''' Create new Subject instance or returns existing one '''
 
-    subject_id = data['id']
-    if subject_id not in self._cache:
-      subject = Subject(
+    key = hash(frozenset(data.items()))
+    if key not in self._cache:
+      self._cache[key] = Subject(
         name = data['name'],
         description = data['description']
       )
-      self._cache[subject_id] = subject
-    return self._cache[subject_id]
+    return self._cache[key]
