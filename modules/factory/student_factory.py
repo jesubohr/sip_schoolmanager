@@ -1,11 +1,12 @@
 from applications.schoolmanager.modules.models.student import Student
 
 class StudentFactory:
+  ''' Class for student factory '''
+
+  @staticmethod
   def create_student(data: dict) -> Student:
     ''' Create new Student instance '''
-
     return Student(
-      student_code = data['student_code'],
       first_name = data['first_name'],
       last_name = data['last_name'],
       birthdate = data['birthdate'],

@@ -1,8 +1,7 @@
 from datetime import date
 
 class Student:
-  def __init__(self, student_code: str, first_name: str, last_name: str, birthdate: date, email: str, phone: str, classroom_id: int):
-    self.student_code = student_code
+  def __init__(self, first_name: str, last_name: str, birthdate: date, email: str, phone: str, classroom_id: int):
     self.first_name = first_name
     self.last_name = last_name
     self.birthdate = birthdate
@@ -11,4 +10,4 @@ class Student:
     self.classroom_id = classroom_id
 
   def __str__(self):
-    return f'{self.student_code} - {self.first_name} {self.last_name}'
+    return f'{self.first_name} {self.last_name}'
