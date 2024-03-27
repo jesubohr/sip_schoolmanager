@@ -8,12 +8,11 @@ class ClassromFactory(metaclass = Singleton):
   def create_classroom(self, data: dict) -> Classroom:
     ''' Create new Classroom instance or returns existing one '''
 
-    classroom_id = data['id']
-    if classroom_id not in self._cache:
-      classroom = Classroom(
+    key = hash(frozenset(data.items()))
+    if key not in self._cache:
+      self._cache[key] = Classroom(
         name = data['name'],
         description = data['description'],
         representative = data['representative']
       )
-      self._cache[classroom_id] = classroom
-    return self._cache[classroom_id]
+    return self._cache[key]
