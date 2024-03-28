@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+
+{{ block head }}
+<title>Salones</title>
+<link rel="stylesheet" href="{{ =URL('static', 'css/grids.css') }}">
+{{ end head }}
+
+<section class="grid-section">
+  <h1>Administrar Salones</h1>
+  {{=grid}}
+</section>
+
+{{ block paje_js }}
+{{ end paje_js }}
