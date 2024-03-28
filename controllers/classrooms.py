@@ -3,8 +3,18 @@ from applications.schoolmanager.modules.factory.classroom_factory import Classro
 from applications.schoolmanager.modules.repository.classroom_repository import ClassroomRepository
 
 def index():
-  ''' Return classrooms form view '''
-  return dict()
+  ''' Return classrooms view '''
+  classroom_repository = ClassroomRepository()
+  form_model = classroom_repository.table
+  grid = SQLFORM.grid(
+    form_model,
+    user_signature=False,
+    orderby='name',
+    sortable=True,
+    paginate=10,
+    csv=False
+  )
+  return dict(grid=grid)
 
 def get_all():
   ''' Return all classrooms '''
