@@ -75,11 +75,9 @@ export class FormRender {
 
   #createFields() {
     return this.#form.inputs.map((field) => {
-      const labelElement = createElement(
-        "label",
-        { for: field.id },
-        field.label
-      )
+      const labelElement = createElement("label", { for: field.id })
+      const spanElement = createElement("span", {}, field.label)
+      labelElement.appendChild(spanElement)
 
       if (field.type === "select") {
         const selectElement = createElement("select", {
@@ -87,6 +85,9 @@ export class FormRender {
           name: field.name,
           required: `${field.required}`
         })
+        const defaultOption = createElement("option", { value: "" }, field.placeholder ?? "")
+        selectElement.appendChild(defaultOption)
+
         const options = (field?.value ?? []) as Option[]
         options.forEach(({ label, value }: Option) => {
           const optionElement = createElement("option", { value }, label)
