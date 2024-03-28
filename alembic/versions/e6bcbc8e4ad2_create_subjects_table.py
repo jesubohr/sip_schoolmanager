@@ -34,11 +34,11 @@ def upgrade() -> None:
             {'name': 'Lengua y Literatura', 'description': 'Enseñanza de gramática, composición escrita, análisis literario y apreciación de la literatura.'},
             {'name': 'Historia', 'description': 'Estudio de los eventos pasados y su impacto en la sociedad, la cultura y el mundo actual.'},
             {'name': 'Educación Física', 'description': 'Clase enfocada en actividades físicas para promover la salud y el bienestar.'},
-            {'name': 'Educación Artística', 'description': 'Exploración de diversas formas de expresión artística, como pintura, música, teatro y danza.'},
-            {'name': 'Idiomas Extranjeros', 'description': 'Aprendizaje de un idioma distinto al nativo, como inglés, francés, alemán, etc.'},
-            {'name': 'Educación Cívica y Ética', 'description': 'Instrucción sobre los derechos y deberes de los ciudadanos, así como valores éticos y morales.'},
+            {'name': 'Artística', 'description': 'Exploración de diversas formas de expresión artística, como pintura, música, teatro y danza.'},
+            {'name': 'Inglés', 'description': 'Aprendizaje del idioma inglés como segunda lengua, incluyendo gramática, vocabulario y conversación.'},
+            {'name': 'Cívica y Ética', 'description': 'Instrucción sobre los derechos y deberes de los ciudadanos, así como valores éticos y morales.'},
             {'name': 'Tecnología', 'description': 'Clase que cubre temas relacionados con la informática, la programación, la robótica y la tecnología en general.'},
-            {'name': 'Educación para la Salud', 'description': 'Enseñanza sobre hábitos saludables, prevención de enfermedades y promoción del bienestar físico y mental.'}
+            {'name': 'Salud y Bienestar', 'description': 'Enseñanza sobre hábitos saludables, prevención de enfermedades y promoción del bienestar físico y mental.'}
         ]
     )
 
