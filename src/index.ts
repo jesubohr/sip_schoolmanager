@@ -10,8 +10,8 @@ const studentFormInputs: InputField[] = [
     type: "text",
     id: "firstName",
     name: "firstName",
-    label: "First Name",
-    placeholder: "Enter your firstname",
+    label: "Nombres",
+    placeholder: "Ingresa tus nombres",
     required: true,
     validators: [VALIDATORS.required, VALIDATORS.isEmpty]
   },
@@ -19,8 +19,8 @@ const studentFormInputs: InputField[] = [
     type: "text",
     id: "lastName",
     name: "lastName",
-    label: "Last Name",
-    placeholder: "Enter your lastname",
+    label: "Apellidos",
+    placeholder: "Ingresa tus apellidos",
     required: true,
     validators: [VALIDATORS.required, VALIDATORS.isEmpty]
   },
@@ -28,8 +28,8 @@ const studentFormInputs: InputField[] = [
     type: "date",
     id: "birthdate",
     name: "birthdate",
-    label: "Date of Birth",
-    placeholder: "Enter your date of birth",
+    label: "Fecha de nacimiento",
+    placeholder: "Ingresa tu fecha de nacimiento",
     required: true,
     validators: [VALIDATORS.required, VALIDATORS.isDate]
   },
@@ -37,17 +37,17 @@ const studentFormInputs: InputField[] = [
     type: "email",
     id: "email",
     name: "email",
-    label: "Email",
-    placeholder: "Enter your email",
+    label: "Correo electrónico",
+    placeholder: "Ingresa tu correo electrónico",
     required: true,
     validators: [VALIDATORS.required, VALIDATORS.isEmpty, VALIDATORS.isEmail]
   },
   {
-    type: "tel",
+    type: "number",
     id: "phone",
     name: "phone",
-    label: "Phone",
-    placeholder: "Enter your phone number",
+    label: "Teléfono",
+    placeholder: "Ingresa tu teléfono",
     required: true,
     validators: [VALIDATORS.required, VALIDATORS.isEmpty, VALIDATORS.isPhone]
   }
@@ -62,8 +62,8 @@ export async function initRegisterForm() {
     type: "select",
     id: "classroomId",
     name: "classroomId",
-    label: "Classroom",
-    placeholder: "Select the classroom",
+    label: "Salón",
+    placeholder: "Selecciona el salón",
     value: classroomOptions,
     required: true,
     validators: [VALIDATORS.required]
