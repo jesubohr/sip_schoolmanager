@@ -1,0 +1,73 @@
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem 1.8rem;
+  width: 100%;
+}
+
+.form-section h1 {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.form-container .fields-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.form-container button {
+  padding: 0.6em 1.6em;
+  color: white;
+  background-color: #009879;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+.form-container button:hover {
+  background-color: #007f6e;
+  transform: scale(1.1);
+}
+
+.fields-container label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.fields-container label span {
+  font-size: 1.1rem;
+}
+
+.fields-container input,
+.fields-container select {
+  padding: 0.6em 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.fields-container input:focus-visible,
+.fields-container select:focus-visible {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #009879;
+}
+
+.fields-container select option[value=""] {
+  color: #777;
+}
