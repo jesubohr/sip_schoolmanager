@@ -1,0 +1,41 @@
+{{ extend 'layout.html' }}
+
+{{ block head }}
+<title>Asistencia Estudiantil</title>
+<link rel="stylesheet" href="{{ =URL('static', 'css/attendance.css') }}">
+{{include 'web2py_ajax.html'}}
+{{ end head }}
+
+<section class="attendance-section">
+  <div class="attendance-header">
+    <h1>Asistencia por Clase</h1>
+    <p>
+      Asistencia de los estudiantes en cada materia de cada salón.
+      Puede cambiar la asistencia de un estudiante en una materia seleccionando la opción correspondiente.
+    </p>
+  </div>
+  {{ =attendance }}
+</section>
+
+{{ block paje_js }}
+<script>
+  const attendanceSelects = document.querySelectorAll('.attendance-select')
+  attendanceSelects.forEach(select => {
+    select.addEventListener('change', () => {
+      const [studentId, subjectId] = select.name.split('_').slice(1)
+      updateAttendance(studentId, subjectId, select.value)
+    })
+  })
+
+  function updateAttendance(studentId, subjectId, attended) {
+    const requestObject = { studentId, subjectId, attended }
+    jQuery.post(
+      "{{ =URL('attendances', 'update_attendance') }}",
+      JSON.stringify(requestObject),
+      (response) => { console.log(response) }
+    ).fail(function (xhr, status, error) {
+      console.error('There was an error in the request:', error);
+    })
+  }
+</script>
+{{ end paje_js }}

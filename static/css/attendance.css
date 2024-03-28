@@ -1,0 +1,107 @@
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.attendance-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 3rem 2rem 5rem;
+  width: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+.attendance-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.attendance-header h1 {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.attendance-header p {
+  max-width: 80ch;
+  font-size: 1.25rem;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.classrooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.classroom-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.classroom-container:has(p) {
+  gap: 0.4rem;
+}
+
+.classroom-container p {
+  font-size: 1.2rem;
+}
+
+.attendance-table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-transform: capitalize;
+}
+
+.attendance-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 12px 12px;
+}
+
+.attendance-table tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.attendance-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.attendance-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.attendance-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.attendance-table select {
+  display: block;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-color: #ccc;
+  outline-color: transparent;
+}
+
+.attendance-table select:focus-visible {
+  outline-width: 2px;
+  outline-style: dashed;
+  outline-color: #009879;
+  outline-offset: 2px;
+}
