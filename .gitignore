@@ -2,3 +2,4 @@ node_modules
 *.log
 *.example.py
 __pycache__
+dist
