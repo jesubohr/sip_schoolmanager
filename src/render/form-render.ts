@@ -1,7 +1,7 @@
 import { type Form } from "@/models/form"
 import { createElement } from "@/utils/dom"
 
-type Option = { label: string, value: string }
+type Option = { label: string; value: string }
 export class FormRender {
   #form: Form
 
@@ -31,7 +31,7 @@ export class FormRender {
   }
 
   setError(fieldId: string, message: string) {
-    const errorElement = document.querySelector(`#${fieldId} .error-message`)
+    const errorElement = document.querySelector(`#${fieldId} + .error-message`)
     if (errorElement) errorElement.textContent = message
   }
 
@@ -63,7 +63,10 @@ export class FormRender {
     const statusMessage = createElement("p", { class: "status-message" })
     const closeButton = createElement(
       "button",
-      { type: "button", class: "close-button" },
+      {
+        type: "button",
+        class: "close-button"
+      },
       "×"
     )
 
@@ -85,7 +88,11 @@ export class FormRender {
           name: field.name,
           required: `${field.required}`
         })
-        const defaultOption = createElement("option", { value: "" }, field.placeholder ?? "")
+        const defaultOption = createElement(
+          "option",
+          { value: "" },
+          field.placeholder ?? ""
+        )
         selectElement.appendChild(defaultOption)
 
         const options = (field?.value ?? []) as Option[]
@@ -115,7 +122,11 @@ export class FormRender {
   }
 
   #createSubmitButton() {
-    const button = createElement("button", { type: "submit" }, "Submit")
+    const button = createElement(
+      "button",
+      { type: "submit" },
+      "Añadir Estudiante"
+    )
     return button
   }
 }
