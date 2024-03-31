@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  schoolmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+  db:
+    image: postgres:16
+    restart: always
+    container_name: db
+    environment:
+      POSTGRES_USER: schoolmanager
+      POSTGRES_PASSWORD: Yt5Tg26KPC5LJLm
+      POSTGRES_DB: schoolmanager
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -t 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  pgdata:
