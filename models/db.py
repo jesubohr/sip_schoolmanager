@@ -30,7 +30,7 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     # if NOT running on Google App Engine use SQLite or other DB
     # ---------------------------------------------------------------------
-    db = DAL('postgresql://postgres:lordex@localhost/schoolmanager',
+    db = DAL('postgres://schoolmanager:Yt5Tg26KPC5LJLm@db:5432/schoolmanager',
              pool_size=configuration.get('db.pool_size'),
              migrate_enabled=False,
              check_reserved=['all'])
