@@ -18,6 +18,63 @@
   gap: 1.5rem;
 }
 
+.form-container .form-status {
+  --container-hue: 0;
+  --button-hue: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  background-color: hsl(var(--container-hue), 100%, 90%);
+}
+
+.form-container .form-status[data-status="success"] {
+  --container-hue: 110;
+  --button-hue: 140;
+  --button-light: 60%;
+}
+
+.form-container .form-status[data-status="error"] {
+  --container-hue: 0;
+  --button-hue: 0;
+  --button-light: 70%;
+}
+
+.form-status .status-message {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.form-status .close-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: hsl(var(--button-hue), 100%, 40%);
+  background-color: hsl(var(--button-hue), 90%, 80%);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  line-height: 0.8;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-status .close-button:hover {
+  color: hsl(var(--button-hue), 100%, 30%);
+  background-color: hsl(var(--button-hue), 90%, var(--button-light));
+}
+.form-status .close-button:focus-visible {
+  color: hsl(var(--button-hue), 100%, 30%);
+  background-color: hsl(var(--button-hue), 90%, var(--button-light));
+  box-shadow: 0 0 0 2px white,
+    0 0 0 4px hsl(var(--button-hue), 90%, var(--button-light));
+}
+
 .form-container .fields-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -27,7 +84,7 @@
   max-width: 1000px;
 }
 
-.form-container button {
+.form-container button[type="submit"] {
   padding: 0.6em 1.6em;
   color: white;
   background-color: #009879;
@@ -39,7 +96,7 @@
   transition: transform 0.2s ease-out;
 }
 
-.form-container button:hover {
+.form-container button[type="submit"]:hover {
   background-color: #007f6e;
   transform: scale(1.1);
 }
@@ -70,4 +127,10 @@
 
 .fields-container select option[value=""] {
   color: #777;
+}
+
+.fields-container .error-message {
+  font-size: 1rem;
+  color: hsl(0, 80%, 50%);
+  margin: 0;
 }
