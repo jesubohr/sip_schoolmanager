@@ -1,18 +1,17 @@
 # School Management Platform
 
-A platform for managing students, courses and classes in a school. Made with web2py and TypeScript.
+A platform for managing students, classrooms, subjects and attendances in a school.
+Made with web2py and TypeScript.
 
 ## Installation
-
 1. Execute the following command to run the project with Docker:
 ```bash
-  docker-compose up
+  docker-compose up --build -d
 ```
-2. Access the application at [http://0.0.0.0:8000/schoolmanager](http://0.0.0.0:8000/schoolmanager)
-
+2. Access the application at [http://localhost:8000/](http://localhost:8000/)
 
 ## Usage
-
-1. Create a new student by clicking on the "New Student" button.
-2. Create a new subject by clicking on the "New Subject" button.
-3. Create a new classroom by clicking on the "New Classroom" button.
+- On the initial page, you will see a list of cards corresponding to the actions available for each entity (students, classrooms, subjects and attendances).
+- These actions are also available in the navigation bar.
+- For each entity (except attendances), you can create, read, update and delete records.
+- For attendances, you can only create and read records. The attendances correspond to the presence of students in a classroom on a given subject.
