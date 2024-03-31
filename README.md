@@ -8,7 +8,7 @@ Made with web2py and TypeScript.
 ```bash
   docker-compose up --build -d
 ```
-2. Access the application at [http://localhost:8000/](http://localhost:8000/)
+2. Access the application at [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ## Usage
 - On the initial page, you will see a list of cards corresponding to the actions available for each entity (students, classrooms, subjects and attendances).
