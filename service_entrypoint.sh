@@ -1,6 +1,8 @@
 #!/bin/bash
 
 sleep 10
+npm install
+npm run build
 alembic upgrade head
 
 cd /app/web2py

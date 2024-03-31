@@ -5,6 +5,9 @@ RUN wget https://mdipierro.pythonanywhere.com/examples/static/web2py_src.zip &&\
   rm web2py_src.zip
 
 RUN apt-get update
+RUN apt-get install -y npm
+RUN npm install -g n
+RUN n stable
 
 ENV WORK_DIR=/app/web2py/applications/schoolmanager
 
