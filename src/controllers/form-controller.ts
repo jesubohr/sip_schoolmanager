@@ -38,13 +38,20 @@ export class FormController {
   }
 
   #validateInputValue(inputs: InputToValidate[]) {
-    return inputs.every((input) => {
-      return input.validators.every((validator) => {
-        const { isValid, message } = validator(input.value, input.name)
-        if (!isValid) this.#formRender.setError(input.id, message)
-        return isValid
+    const invalidInputs = [] as { id: string; message: string }[]
+    inputs.map(input => input.validators.map(validator => {
+      const { isValid, message } = validator(input.value, input.name)
+      if (!isValid) invalidInputs.push({ id: input.id, message })
+    }))
+
+    if (invalidInputs.length) {
+      invalidInputs.forEach(({ id, message }) => {
+        this.#formRender.setError(id, message)
       })
-    })
+      return false
+    }
+
+    return true
   }
 
   #getInputsWithValue(form: Form) {
