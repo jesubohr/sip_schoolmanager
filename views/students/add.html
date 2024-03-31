@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+
+{{ block head }}
+<title>Estudiantes</title>
+<link rel="stylesheet" href="{{ =URL('static', 'css/form.css') }}">
+{{ end head }}
+
+<section class="form-section">
+  <h1>Añadir Estudiante</h1>
+  <div id="form-container" class="form-container"></div>
+</section>
+
+
+{{ block paje_js }}
+<script type="module">
+  import { initRegisterForm } from "{{=URL('static', 'dist/index.js')}}";
+  initRegisterForm();
+</script>
+{{ end paje_js }}

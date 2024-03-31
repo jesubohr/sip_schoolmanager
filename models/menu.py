@@ -4,10 +4,13 @@
 
 response.menu = []
 if not configuration.get('app.production'):
-    _app = request.application
-    response.menu += [
-        (T('Estudiantes'), False, URL('students', 'index')),
-        (T('Salones'), False, URL('classrooms', 'index')),
-        (T('Materias'), False, URL('subjects', 'index')),
-        (T('Asistencias'), False, URL('attendances', 'index')),
-    ]
+  _app = request.application
+  response.menu += [
+    (T('Estudiantes'), False, '#', [
+      (T('Ver Estudiantes'), False, URL('students', 'index')),
+      (T('Agregar Estudiante'), False, URL('students', 'add')),
+    ]),
+    (T('Salones'), False, URL('classrooms', 'index')),
+    (T('Materias'), False, URL('subjects', 'index')),
+    (T('Asistencias'), False, URL('attendances', 'index')),
+  ]

@@ -3,7 +3,21 @@ from applications.schoolmanager.modules.factory.student_factory import StudentFa
 from applications.schoolmanager.modules.repository.student_repository import StudentRepository
 
 def index():
-  ''' Return students form view '''
+  ''' Return students view '''
+  student_repository = StudentRepository()
+  form_model = student_repository.table
+  grid = SQLFORM.grid(
+    form_model,
+    user_signature=False,
+    orderby='first_name',
+    sortable=True,
+    paginate=10,
+    csv=False
+  )
+  return dict(grid=grid)
+
+def add():
+  ''' Show students form '''
   return dict()
 
 def create():
